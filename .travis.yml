@@ -1,1 +1,8 @@
 language: go
+
+before_script:
+  - openssl aes-256-cbc -K $encrypted_09f244590a2a_key -iv $encrypted_09f244590a2a_iv -in kube.config.enc -out kube.config -d
+
+script:
+  - go build -v ./...
+  - docker build .
