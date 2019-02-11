@@ -1,7 +1,7 @@
 language: go
 
 script:
-  - go build -v ./...
+  - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -v ./...
   - docker build -t drbstaging.azurecr.io/bankdata/deployment-cleanup:git$TRAVIS_COMMIT .
 
 before_deploy:
