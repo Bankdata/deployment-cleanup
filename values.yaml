@@ -1,6 +1,8 @@
 ---
 
 # Values for deployment
+image:
+  pullSecret: regcred
 
 env:
   - name: GITHUB_ACCESS_TOKEN
