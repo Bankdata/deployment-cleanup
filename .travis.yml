@@ -4,6 +4,9 @@ script:
   - go build -v ./...
   - docker build -t drbstaging.azurecr.io/bankdata/deployment-cleanup:git$TRAVIS_COMMIT .
 
+before_deploy:
+  - ./.travis/install-kube-tools.sh
+
 deploy:
   - provider: script
     script: ./.travis/deploy.sh drbstaging.azurecr.io/bankdata/deployment-cleanup values.yaml
