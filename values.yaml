@@ -1,0 +1,24 @@
+---
+
+# Values for deployment
+
+env:
+  - name: GITHUB_ACCESS_TOKEN
+    valueFrom:
+      secretKeyref:
+        name: deployment-cleanup
+        key: githubToken
+  - name: AZURE_STORAGE_ACCOUNT_NAME
+    valueFrom:
+      secretKeyref:
+        name: deployment-cleanup
+        key: azureAccountName
+  - name: AZURE_STORAGE_ACCOUNT_KEY
+    valueFrom:
+      secretKeyref:
+        name: deployment-cleanup
+        key: azureAccountKey
+
+slugs:
+  - "bankdata/relationsbank"
+  - "kirbydesign/designsystem"
