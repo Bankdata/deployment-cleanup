@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/Azure/azure-storage-blob-go/azblob"
 	"github.com/google/go-github/github"
@@ -35,8 +36,10 @@ func main() {
 	azKey = os.Getenv("AZURE_STORAGE_ACCOUNT_KEY")
 
 	config = make(map[string]RepositoryData)
-	config["relationsbank"] = initializeRepositoryData(ctx, "bankdata", "relationsbank")
-	config["designsystem"] = initializeRepositoryData(ctx, "kirbydesign", "designsystem")
+	for _, slug := range os.Args[1:] {
+		parts := strings.Split(slug, "/")
+		config[parts[1]] = initializeRepositoryData(ctx, parts[0], parts[1])
+	}
 
 	credential, err := azblob.NewSharedKeyCredential(azName, azKey)
 	if err != nil {
