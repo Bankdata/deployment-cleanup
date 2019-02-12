@@ -1,0 +1,13 @@
+package: github.com/bankdata/deployment-cleanup
+import:
+- package: k8s.io/client-go
+  subpackages:
+  - kubernetes
+  - plugin/pkg/client/auth
+  - rest
+- package: k8s.io/helm
+  subpackages:
+  - pkg/helm
+  - pkg/helm/environment
+  - pkg/helm/portforwarder
+  - pkg/kube
