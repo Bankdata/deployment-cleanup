@@ -6,7 +6,7 @@ install:
   - glide install --strip-vendor
 
 script:
-  - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -v ./...
+  - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -v cmd/...
   - docker build -t drbstaging.azurecr.io/bankdata/deployment-cleanup:git$TRAVIS_COMMIT .
 
 before_deploy:
