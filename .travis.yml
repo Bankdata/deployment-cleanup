@@ -1,5 +1,10 @@
 language: go
 
+install:
+  - go get -v github.com/Masterminds/glide
+  - cd $GOPATH/src/github.com/Masterminds/glide && git checkout tags/0.13.2 && go install && cd -
+  - glide install
+
 script:
   - GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -v ./...
   - docker build -t drbstaging.azurecr.io/bankdata/deployment-cleanup:git$TRAVIS_COMMIT .
