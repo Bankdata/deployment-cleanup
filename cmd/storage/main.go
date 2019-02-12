@@ -28,7 +28,7 @@ var (
 )
 
 func main() {
-	log.Print("Starting clean up run")
+	log.Print("Starting storage clean up run")
 
 	ctx := context.Background()
 	ghToken = os.Getenv("GITHUB_ACCESS_TOKEN")
