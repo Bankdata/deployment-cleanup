@@ -1,4 +1,4 @@
-package: github.com/bankdata/deployment-cleanup
+package: github.com/Bankdata/deployment-cleanup
 import:
 - package: k8s.io/client-go
   subpackages:
