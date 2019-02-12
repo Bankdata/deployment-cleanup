@@ -37,7 +37,7 @@ helm:
     - "kirbydesign/designsystem"
   extraVolumeMounts:
     - name: kube-config
-      mountPath: /root
+      mountPath: /tmp
 
 extraVolumes:
   - name: kube-config
