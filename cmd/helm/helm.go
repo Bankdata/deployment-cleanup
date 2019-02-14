@@ -114,7 +114,7 @@ func initializeRepositoryData(ctx context.Context, orgName string, repoName stri
 	gh := github.NewClient(tc)
 
 	// Read branches
-	listOpts := &github.ListOptions{}
+	listOpts := &github.ListOptions{PerPage: 200}
 	branches, _, err := gh.Repositories.ListBranches(ctx, orgName, repoName, listOpts)
 	if err != nil {
 		log.Fatalf("GH error %s", err)
