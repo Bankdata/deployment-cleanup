@@ -76,7 +76,6 @@ func main() {
 				// Check branches
 				for _, branch := range repositoryData.branches {
 					releaseName := releaseName(repoName, branch)
-					log.Printf("comparing releaseName[%s] with release.Name[%s] based on repo[%s] and branch[%s]", releaseName, release.Name, repoName, branch)
 					if releaseName == release.Name {
 						match = true
 					}
