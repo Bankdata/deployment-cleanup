@@ -125,7 +125,7 @@ func initializeRepositoryData(ctx context.Context, orgName string, repoName stri
 	}
 
 	// Read pull requests
-	prOpts := &github.PullRequestListOptions{}
+	prOpts := &github.PullRequestListOptions{ListOptions: *listOpts}
 	prs, _, err := gh.PullRequests.List(ctx, orgName, repoName, prOpts)
 	if err != nil {
 		log.Fatalf("GH error %s", err)
