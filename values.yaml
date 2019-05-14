@@ -35,3 +35,14 @@ helm:
   slugs:
     - "bankdata/relationsbank"
     - "kirbydesign/designsystem"
+  extraVolumeMounts:
+    - name: kube-config
+      mountPath: /tmp
+
+extraVolumes:
+  - name: kube-config
+    secret:
+      secretName: kube-config-development
+      items:
+      - key: kube.config
+        path: .kube/config
